@@ -26,18 +26,12 @@ void connectAWS() {
   }
   Serial.println("WiFi connected");
 
-  // Configure WiFiClientSecure to use the AWS IoT device credentials
   net.setCACert(AWS_CERT_CA, sizeof(AWS_CERT_CA));
   net.setCertificate(AWS_CERT_CRT, sizeof(AWS_CERT_CRT));
   net.setPrivateKey(AWS_CERT_PRIVATE, sizeof(AWS_CERT_PRIVATE));
-
-  // net.setTrustAnchors(new BearSSL::X509List(AWS_CERT_CA));
-  // net.setClientRSACert(new BearSSL::X509List(AWS_CERT_CRT), new BearSSL::PrivateKey(AWS_CERT_PRIVATE));
-
-  // Connect to the MQTT broker on the AWS endpoint we defined earlier
+  
   client.setServer(AWS_IOT_ENDPOINT, 8883);
 
-  // Create a message handler
   client.setCallback(messageHandler);
 
   Serial.println("Connecting to AWS IOT");
@@ -52,7 +46,6 @@ void connectAWS() {
     return;
   }
 
-  // Subscribe to a topic
   client.subscribe(AWS_IOT_SUBSCRIBE_TOPIC);
 
   Serial.println("AWS IoT Connected!");
@@ -62,7 +55,6 @@ void publishMessage() {
   StaticJsonDocument<200> doc;
   doc["tds"] = tds;
 
-  // Use dtostrf to format the temperature and ph to 2 decimal places
   char temperatureStr[6];
   dtostrf(temperature, 4, 2, temperatureStr);
   doc["suhu"] = String(temperatureStr);
@@ -107,37 +99,4 @@ void loop() {
   publishMessage();
   client.loop();
   delay(10000);
-
-  // String data = "";
-
-  // while (Serial.available() > 0) {
-  //   data += char(Serial.read());
-  // }
-
-  // data.trim();
-
-  // if (data.length() > 0) {
-  //   int temperatureIndex = data.indexOf("suhu:");
-  //   int tdsIndex = data.indexOf("tds:");
-  //   int phIndex = data.indexOf("ph:");
-
-  //   if (temperatureIndex != -1 && tdsIndex != -1 && phIndex != -1) {
-  //     // Extract temperature value
-  //     String temperatureString = data.substring(temperatureIndex + 5, tdsIndex - 1);
-  //     temperature = temperatureString.toFloat();
-
-  //     // Extract TDS value
-  //     String tdsString = data.substring(tdsIndex + 4, phIndex - 1);
-  //     tds = tdsString.toInt();
-
-  //     // Extract pH value
-  //     String phString = data.substring(phIndex + 3);
-  //     ph = phString.toFloat();
-
-  //     // Send each value to AWS IoT using MQTT
-  //     publishMessage();
-  //     client.loop();
-  //     delay(10000);       
-  //   }
-  // }
 }
