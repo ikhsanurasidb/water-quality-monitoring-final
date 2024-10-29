@@ -13,6 +13,11 @@ You can find comprehensive tutorials on YouTube or other articles, but here’s 
 In this setup, I’m using an Arduino Uno to control the sensor and robotic arm, with an ESP8266 as a gateway to send data to the AWS IoT cloud.
 - Upload sketch Gateway.ino to your ESP8266.
 - Upload sketch Controller.ino to tour Arduino.
+
+## 3. Run a Script
+Use <a href="https://pm2.keymetrics.io/">pm2</a> to run subscribe.js as background process
+
+You can find this script in Web-Dashboard/src/server/subscribe.js
    
 ## 3. Web Based Monitoring
 To use this, you should install <a href="https://nodejs.org/en/download/package-manager">Node.js</a>
