@@ -24,15 +24,12 @@ You can find this script in Web-Dashboard/src/server/subscribe.js
 ## 3. Web Based Monitoring
 To use this, you should install <a href="https://nodejs.org/en/download/package-manager">Node.js</a>
 
-First, run the development server:
+First, move to water-quality-monitoring-final directory 
+
+Then, run this command:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
-Then, open [http://localhost:3000](http://localhost:3000) with your browser.
+Open [http://localhost:3000](http://localhost:3000) with your browser.
