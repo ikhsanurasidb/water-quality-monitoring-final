@@ -15,6 +15,8 @@ In this setup, I’m using an Arduino Uno to control the sensor and robotic arm,
 - Upload sketch Controller.ino to tour Arduino.
 
 ## 3. Run a Script
+The purpose of this script is to receive incoming data and save it to the database
+
 Use <a href="https://pm2.keymetrics.io/">pm2</a> to run subscribe.js as background process
 
 You can find this script in Web-Dashboard/src/server/subscribe.js
