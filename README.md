@@ -15,7 +15,7 @@ In this setup, I’m using an Arduino Uno to control the sensor and robotic arm,
 - Upload sketch Controller.ino to tour Arduino.
    
 ## 3. Web Based Monitoring
-Untuk menggunakan ini anda harus sudah menginstall <a href="https://nodejs.org/en/download/package-manager">Node.js</a>
+To use this, you should install <a href="https://nodejs.org/en/download/package-manager">Node.js</a>
 
 First, run the development server:
 
