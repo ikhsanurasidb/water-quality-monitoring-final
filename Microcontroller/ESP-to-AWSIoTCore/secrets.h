@@ -1,13 +1,13 @@
 #include <pgmspace.h>
  
 #define SECRET
-#define THINGNAME "ESP32_TestMQTT"                         
+#define THINGNAME "ESP32_TestMQTT"     //change this                         
  
 const char WIFI_SSID[] = "xxxxx";               //change this
 const char WIFI_PASSWORD[] = "xxxxx";          //change this
 const char AWS_IOT_ENDPOINT[] = "xxxx";       //change this
  
-// Amazon Root CA 1
+// Amazon Root CA 1                                     //change this
 static const uint8_t AWS_CERT_CA[] PROGMEM = R"EOF(
 -----BEGIN CERTIFICATE-----
 MIIDQTCCAimgAwIBAgITBmyfz5m/jAo54vB4ikPmljZbyjANBgkqhkiG9w0BAQsF
